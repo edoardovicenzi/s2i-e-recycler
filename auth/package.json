@@ -1,0 +1,30 @@
+{
+  "name": "auth",
+  "version": "1.0.0",
+  "description": "A simple auth service that handles jwt tokens.",
+  "main": "index.js",
+  "scripts": {
+    "startDev": "npx tsx watch ./src/index.ts"
+  },
+  "keywords": [
+    "auth",
+    "jwt",
+    "api"
+  ],
+  "author": "Edoardo Vicenzi",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/mysql": "^2.15.27",
+    "@types/node": "^22.15.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}

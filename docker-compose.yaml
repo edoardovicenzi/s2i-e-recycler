@@ -1,0 +1,49 @@
+services:
+  app:
+    container_name: e_recycler_api
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    depends_on:
+      - db-app
+    ports:
+      - ${E_RECYCLER_PORT}:8080
+
+  auth:
+    container_name: auth_api
+    build:
+      context: ./auth/
+      dockerfile: Dockerfile
+    depends_on:
+      - db-auth
+    ports:
+      - ${AUTH_PORT}:8080
+
+  db-app:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_E_RECYCLER_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_E_RECYCLER_USER}
+      MYSQL_PASSWORD: ${DB_E_RECYCLER_USER_PASSWORD}
+      MYSQL_DATABASE: ${DB_E_RECYCLER_DATABASE_NAME}
+    ports:
+      - ${DB_E_RECYCLER_PORT}:3306
+    volumes:
+      - erecycler-data:/var/lib/mysql
+
+  db-auth:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_AUTH_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_AUTH_USER}
+      MYSQL_PASSWORD: ${DB_AUTH_USER_PASSWORD}
+      MYSQL_DATABASE: ${DB_AUTH_DATABASE_NAME}
+    ports:
+      - ${DB_AUTH_PORT}:3306
+    volumes:
+      - auth-data:/var/lib/mysql
+volumes:
+  erecycler-data:
+  auth-data:
