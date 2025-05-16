@@ -1,5 +1,5 @@
 services:
-  app:
+  backend:
     container_name: e_recycler_api
     build:
       context: ./backend/
@@ -8,6 +8,8 @@ services:
       - db-app
     ports:
       - ${E_RECYCLER_PORT}:8080
+    networks:
+      - e-recycler-net
 
   auth:
     container_name: auth_api
@@ -18,6 +20,8 @@ services:
       - db-auth
     ports:
       - ${AUTH_PORT}:8080
+    networks:
+      - e-recycler-net
 
   db-app:
     image: mysql:latest
@@ -31,6 +35,8 @@ services:
       - ${DB_E_RECYCLER_PORT}:3306
     volumes:
       - erecycler-data:/var/lib/mysql
+    networks:
+      - e-recycler-net
 
   db-auth:
     image: mysql:latest
@@ -44,6 +50,11 @@ services:
       - ${DB_AUTH_PORT}:3306
     volumes:
       - auth-data:/var/lib/mysql
+    networks:
+      - e-recycler-net
+
 volumes:
   erecycler-data:
   auth-data:
+networks:
+  e-recycler-net: {}

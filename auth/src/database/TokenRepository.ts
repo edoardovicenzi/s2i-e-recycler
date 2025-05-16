@@ -1,4 +1,4 @@
-import { Connection } from "mysql2/promise";
+import { Connection, FieldPacket, QueryResult } from "mysql2/promise";
 import { DatabaseConnection } from "./DatabaseConnection";
 
 export class TokenRepository {
@@ -21,7 +21,7 @@ export class TokenRepository {
     }
 
     //Create
-    public async add(token: string) {
+    public async add(token: string): Promise<void> {
         try {
             const [results, fields] = await this._conn.execute(
                 'INSERT INTO jwt (refreshToken) VALUES (?)',
@@ -32,7 +32,7 @@ export class TokenRepository {
         }
     }
     //Read
-    public async getByString(token: string) {
+    public async getByString(token: string): Promise<[QueryResult, FieldPacket[]]> {
         try {
             const [results, fields] = await this._conn.execute(
                 'SELECT refreshToken FROM jwt WHERE refreshToken = ?',

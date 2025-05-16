@@ -1,0 +1,23 @@
+# Node
+node_modules
+npm_debug.log
+dist
+
+# Version Control
+.git
+.gitignore
+
+# IDE and Editor files
+.vscode
+.idea
+*.swp
+*.swo
+
+# Environment files
+# TODO: Uncomment for production
+# .env
+# .env.local
+# .env.*
+
+# OS files
+.DS_Store
