@@ -9,8 +9,8 @@ services:
       DB_USER: ${DB_E_RECYCLER_USER}
       DB_USER_PASSWORD: ${DB_E_RECYCLER_USER_PASSWORD}
       DB_DATABASE_NAME: ${DB_E_RECYCLER_DATABASE_NAME}
-      DB_PORT: "3306"
-      DB_HOSTNAME: "db-app"
+      DB_PORT: 3306
+      DB_HOSTNAME: db-app
       AUTH_SERVICE_URL: "http://localhost:5000"
     depends_on:
       - db-app
@@ -32,8 +32,8 @@ services:
       DB_AUTH_USER: ${DB_AUTH_USER}
       DB_AUTH_USER_PASSWORD: ${DB_AUTH_USER_PASSWORD}
       DB_AUTH_DATABASE_NAME: ${DB_AUTH_DATABASE_NAME}
-      DB_AUTH_PORT: "3306"
-      DB_AUTH_HOSTNAME: "db-auth"
+      DB_AUTH_PORT: 3306
+      DB_AUTH_HOSTNAME: db-auth
     depends_on:
       - db-auth
     ports:
