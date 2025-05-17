@@ -222,7 +222,7 @@ export class ProductRepository {
 
     public async getByCategory(category: Category): Promise<Product[]> {
         try {
-            const [results, fields] = await this._conn.execute(
+            const [results] = await this._conn.execute(
                 `SELECT * FROM ${this._table} WHERE category_id = ?`,
                 [category.id]
             );
@@ -237,7 +237,7 @@ export class ProductRepository {
     public async getByManufacturer(manufacturer: Manufacturer): Promise<Product[]> {
         try {
 
-            const [results, fields] = await this._conn.execute(
+            const [results] = await this._conn.execute(
                 `SELECT * FROM ${this._table} WHERE manufacturer_id = ?`,
                 [manufacturer.id]
             );

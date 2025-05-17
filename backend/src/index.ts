@@ -11,20 +11,13 @@ import { router as authRouter } from "./routers/auth";
 
 //Utility
 import { Migrations } from "./database/Migrations";
-
 //Pre Init
 
 dotenv.config()
 
 //Run migrations
 
-// if (process.env.NODE_ENV !== 'production'){
-//     Migrations.migrateDev();
-// }
-//
-// else{
-//     Migrations.up();
-// }
+Migrations.migrateDev();
 
 //init
 const PORT = process.env.PORT;
@@ -52,7 +45,7 @@ app.use("/products", productsRouter);
 // || SHOPPING CART
 // TODO: Future works: shopping cart api
 
-// || SHOPPING CART
+// || Payment api
 // TODO: Future works: payment
 
 // || Start server

@@ -44,7 +44,7 @@ export class UserRepository {
     }
     public async get(): Promise<User[]> {
         try {
-            const [results, fields] = await this._conn.query(
+            const [results] = await this._conn.query(
                 `SELECT * FROM ${this._table}`
             );
             return results as User[]
@@ -57,11 +57,11 @@ export class UserRepository {
 
     public async getById(id: number): Promise<User> {
         try {
-            const [results, fields] = await this._conn.execute(
+            const [results] = await this._conn.execute(
                 `SELECT * FROM ${this._table} WHERE id = ?`,
                 [id]
             );
-            return results[0] as User
+            return (results as any)[0] as User
         }
         catch (err){
             console.error(err);
@@ -71,11 +71,11 @@ export class UserRepository {
     }
     public async getByEmail(email: string): Promise<User> {
         try {
-            const [results, fields] = await this._conn.execute(
+            const [results] = await this._conn.execute(
                 `SELECT * FROM ${this._table} WHERE email = ?`,
                 [email]
             );
-            return results[0] as User
+            return (results as any)[0] as User
         }
         catch (err){
             console.error(err);
@@ -103,7 +103,7 @@ export class UserRepository {
 
     public async deleteById(id: number): Promise<void> {
         try {
-            const [results, fields] = await this._conn.execute(
+            const [results] = await this._conn.execute(
                 `DELETE FROM ${this._table} WHERE id = ?`,
                 [id]
             )
@@ -117,7 +117,7 @@ export class UserRepository {
     //Email is a UNIQUE field so it is safe
     public async deleteByEmail(email: string): Promise<void> {
         try {
-            const [results, fields] = await this._conn.execute(
+            const [results] = await this._conn.execute(
                 `DELETE FROM ${this._table} WHERE email = ?`,
                 [email]
             )

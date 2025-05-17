@@ -28,11 +28,11 @@ export class ManufacturerRepository {
 
     public async getById(id: number): Promise<Manufacturer> {
         try {
-            const [results, fields] = await this._conn.execute(
+            const [results] = await this._conn.execute(
                 `SELECT * FROM ${this._table} WHERE id = ?`,
                 [id]
             );
-            return results[0] as Manufacturer
+            return (results as any)[0] as Manufacturer
         }
         catch (err){
             console.error(err);
@@ -42,11 +42,11 @@ export class ManufacturerRepository {
 
     public async getByName(name: string): Promise<Manufacturer> {
         try {
-            const [results, fields] = await this._conn.execute(
+            const [results] = await this._conn.execute(
                 `SELECT * FROM ${this._table} WHERE name = ?`,
                 [name]
             );
-            return results[0] as Manufacturer
+            return (results as any)[0] as Manufacturer
         }
         catch (err){
             console.error(err);

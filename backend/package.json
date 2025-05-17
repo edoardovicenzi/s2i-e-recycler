@@ -13,14 +13,14 @@
     "bcrypt": "^5.1.1",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mysql2": "^3.14.1",
-    "tsx": "^4.19.3"
+    "mysql2": "^3.14.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.1",
     "@types/mysql": "^2.15.27",
-    "@types/node": "^22.15.3",
+    "@types/node": "^22.15.18",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
 }
