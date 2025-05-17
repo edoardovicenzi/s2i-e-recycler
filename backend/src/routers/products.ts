@@ -31,7 +31,7 @@ router.post("/", async (req, res) =>{
         }
 
         await uow.products.add(body);
-        res.sendStatus(200)
+        res.sendStatus(200);
     }
     catch (err){
         console.error(err);

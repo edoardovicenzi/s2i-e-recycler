@@ -89,6 +89,10 @@ router.post("/recover", async (req , res) => {
     try{
         const uow = (req as any).uow as UnitOfWork;
 
+        if(!req.body.email && !req.body.password){
+            res.sendStatus(400);
+        }
+
         const body = req.body;
 
         if(!isUser(body)){
