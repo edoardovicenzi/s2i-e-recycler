@@ -9,16 +9,16 @@ E-Recycler is a free marketplace api for refurbished tech. Currently supporting 
 - CRUD operations on:
     - Products
     - Users
-- Search by:
-    - manufacturer
-    - category
-    - user
 
 
 ## Future works
 
 - [ ] CRUD Shopping Cart operations
     - [ ] Pay API integration
+- [ ] Search by:
+    - [ ] manufacturer
+    - [ ] category
+    - [ ] user
 
 ## Installation
 

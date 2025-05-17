@@ -1,4 +1,4 @@
-site_name: Pooling Around
+site_name: E-Recycler
 site_url: https://edoardovicenzi.github.io/s2i-e-recycler
 repo_url: https://github.com/edoardovicenzi/s2i-e-recycler
 repo_name: edoardovicenzi/s2i-e-recycler
@@ -23,6 +23,11 @@ theme:
     - navigation.footer
     - content.tabs.link
 
+nav:
+  - Home: index.md
+  - Getting Started: installation.md
+  - Reference: reference.md
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -35,3 +40,5 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
